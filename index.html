@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marvel Universe Hub</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container">
+        <h1 class="site-title">Marvel Universe Hub</h1>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="youtube.html">YouTube</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-overlay">
+        <h2>Discover epic matchups and hidden facts</h2>
+        <p>
+          Explore daily spotlights on your favourite Marvel characters, learn about
+          their powers, enjoy trivia, and keep up with the latest comic news.
+        </p>
+      </div>
+    </section>
+
+    <main class="container main-content">
+      <!-- Daily Character Spotlight -->
+      <section id="character-spotlight" class="card">
+        <h2>Today's Character Spotlight</h2>
+        <div class="character-display">
+          <img id="char-image" src="" alt="Character image" />
+          <div class="character-info">
+            <h3 id="char-name"></h3>
+            <p id="char-bio"></p>
+            <h4>Abilities</h4>
+            <ul id="char-abilities"></ul>
+            <h4>Versus Insights</h4>
+            <p id="char-vs"></p>
+            <p class="citations" id="char-citations"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Daily Trivia -->
+      <section id="trivia" class="card">
+        <h2>Daily Marvel Trivia</h2>
+        <p id="trivia-fact"></p>
+        <p class="citations" id="trivia-citations"></p>
+      </section>
+
+      <!-- Latest News -->
+      <section id="news" class="card">
+        <h2>Upcoming Comics & News</h2>
+        <ul id="news-list"></ul>
+        <p class="citations" id="news-citations"></p>
+      </section>
+
+      <!-- Footnotes: dynamically populated with citation definitions from script.js -->
+      <section id="footnotes" class="card" style="font-size: 0.8em;"></section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2025 Marvel Universe Hub. This fan site is for educational purposes only.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marvel Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container">
+        <h1 class="site-title">Marvel Universe Hub</h1>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="quiz.html" class="active">Quiz</a></li>
+            <li><a href="youtube.html">YouTube</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="container main-content">
+      <section class="card">
+        <h2>Test Your Marvel Knowledge</h2>
+        <form id="quiz-form" class="quiz-form">
+          <div class="question">
+            <p>1. What event gave Spider‑Man his powers?</p>
+            <label>
+              <input type="radio" name="q1" value="0" />
+              Cosmic rays altered his genes
+            </label><br />
+            <label>
+              <input type="radio" name="q1" value="1" />
+              He was bitten by a radioactive spider
+            </label><br />
+            <label>
+              <input type="radio" name="q1" value="0" />
+              Gamma radiation explosion
+            </label><br />
+            <label>
+              <input type="radio" name="q1" value="0" />
+              An alien symbiote fused with him
+            </label>
+          </div>
+          <div class="question">
+            <p>2. Which description best fits Tony Stark?</p>
+            <label>
+              <input type="radio" name="q2" value="1" />
+              Genius inventor and industrialist who built the Iron Man armor
+            </label><br />
+            <label>
+              <input type="radio" name="q2" value="0" />
+              Soldier enhanced by a super soldier serum
+            </label><br />
+            <label>
+              <input type="radio" name="q2" value="0" />
+              Norse god with a magic hammer
+            </label><br />
+            <label>
+              <input type="radio" name="q2" value="0" />
+              Master of the mystic arts
+            </label>
+          </div>
+          <div class="question">
+            <p>3. Which villain is most closely associated with Iron Man?</p>
+            <label>
+              <input type="radio" name="q3" value="1" />
+              The Mandarin
+            </label><br />
+            <label>
+              <input type="radio" name="q3" value="0" />
+              Green Goblin
+            </label><br />
+            <label>
+              <input type="radio" name="q3" value="0" />
+              Thanos
+            </label><br />
+            <label>
+              <input type="radio" name="q3" value="0" />
+              Red Skull
+            </label>
+          </div>
+          <button type="submit">Check Answers</button>
+        </form>
+        <div id="quiz-result" class="quiz-result"></div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2025 Marvel Universe Hub.</p>
+    </footer>
+    <script>
+      // Quiz logic
+      const quizForm = document.getElementById('quiz-form');
+      const resultDiv = document.getElementById('quiz-result');
+      quizForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        let score = 0;
+        const total = 3;
+        const answers = new FormData(quizForm);
+        answers.forEach((value, key) => {
+          score += Number(value);
+        });
+        const percentage = Math.round((score / total) * 100);
+        let message = '';
+        if (percentage === 100) {
+          message = 'Excellent! You are a Marvel mastermind!';
+        } else if (percentage >= 67) {
+          message = 'Great job! You know your heroes well.';
+        } else {
+          message = 'Keep reading! There’s so much more to discover.';
+        }
+        resultDiv.innerHTML = `<p>You scored ${score} out of ${total} (${percentage}%).</p><p>${message}</p>`;
+      });
+    </script>
+  </body>
+</html>

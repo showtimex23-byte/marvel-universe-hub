@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marvel Forum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container">
+        <h1 class="site-title">Marvel Universe Hub</h1>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="forum.html" class="active">Forum</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="youtube.html">YouTube</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="container main-content">
+      <section class="card">
+        <h2>Community Forum</h2>
+        <p>
+          Join the conversation! Share your thoughts about Marvel characters,
+          comics, movies, and more. Please keep discussions respectful. This
+          simple forum stores comments in your browser, so they will disappear
+          when the page is refreshed.
+        </p>
+        <form id="forum-form" class="forum-form">
+          <input
+            type="text"
+            id="username"
+            placeholder="Your name"
+            required
+          />
+          <textarea
+            id="message"
+            rows="3"
+            placeholder="Share your thoughts..."
+            required
+          ></textarea>
+          <button type="submit">Post Comment</button>
+        </form>
+        <div id="posts" class="forum-posts"></div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2025 Marvel Universe Hub.</p>
+    </footer>
+    <script>
+      // Simple client‑side forum logic
+      const form = document.getElementById('forum-form');
+      const postsDiv = document.getElementById('posts');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('username').value.trim();
+        const message = document.getElementById('message').value.trim();
+        if (!name || !message) return;
+        const post = document.createElement('div');
+        post.classList.add('post');
+        const header = document.createElement('strong');
+        header.textContent = name + ' says:';
+        const body = document.createElement('p');
+        body.textContent = message;
+        post.appendChild(header);
+        post.appendChild(body);
+        postsDiv.prepend(post);
+        // reset form
+        form.reset();
+      });
+    </script>
+  </body>
+</html>
